@@ -12,6 +12,8 @@ export type Project = {
   platform: "YouTube" | "Spotify";
   image: string;
   duration?: string;
+  /** Add the final YouTube or Spotify URL when this project is published. */
+  url?: string;
 };
 
 export const contact = {
