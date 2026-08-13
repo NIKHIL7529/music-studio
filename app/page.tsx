@@ -289,7 +289,9 @@ function Studio() {
   return (
     <section className="studio">
       <div className="studio-head">
-        <span className="eyebrow"><h1>OUR STUDIO</h1></span>
+        <span className="eyebrow">
+          <h1>OUR STUDIO</h1>
+        </span>
         <p>
           A glimpse of the space
           <br />
@@ -412,10 +414,6 @@ function Contact() {
         <ContactCard icon="mail" title="Email">
           <p>
             {contact.email}
-            <br />
-            or
-            <br />
-            {contact.alternateEmail}
           </p>
         </ContactCard>
         <ContactCard icon="instagram" title="Instagram">
@@ -480,14 +478,6 @@ function Footer({ go }: { go: (x: Page) => void }) {
         <div>
           <h3>THIRD EYE MUSIC</h3>
         </div>
-        <div className="footer-nav">
-          <b>NAVIGATION</b>
-          {(["home", "services", "work", "contact"] as Page[]).map((x) => (
-            <button onClick={() => go(x)} key={x}>
-              {x === "home" ? "Home" : x[0].toUpperCase() + x.slice(1)}
-            </button>
-          ))}
-        </div>
         <div className="footer-connect">
           <b>CONNECT</b>
           <a href={contact.whatsappUrl}>
@@ -512,9 +502,6 @@ function Footer({ go }: { go: (x: Page) => void }) {
             <Icon name="mail" />
             {contact.email}
             <br />
-            or
-            <br />
-            {contact.alternateEmail}
           </p>
           <p>
             <Icon name="instagram" />
@@ -559,24 +546,6 @@ function MobileMenu({
           ))}
         </div>
         <WhatsAppButton />
-        <div className="drawer-contact">
-          <span className="eyebrow">CONNECT</span>
-          <p>
-            <Icon name="whatsapp" /> {contact.phone}
-          </p>
-          <p>
-            <Icon name="mail" /> {contact.email}
-            <br />
-            <span>
-              or
-              <br />
-              {contact.alternateEmail}
-            </span>
-          </p>
-          <p>
-            <Icon name="instagram" /> {contact.instagram}
-          </p>
-        </div>
         <div className="drawer-bottom">
           © Third Eye Music. All rights reserved.
         </div>

@@ -27,7 +27,6 @@ export type Project = {
 export const contact = {
   phone: "7973325297",
   email: "info.thirdeyemusicstudio@gmail.com",
-  alternateEmail: "",
   instagram: "@thirdeye.musicstudio",
   whatsappUrl: "https://wa.me/917973325297",
   instagramUrl: "https://www.instagram.com/thirdeye.musicstudio",
@@ -82,13 +81,6 @@ export const services: Service[] = [
     title: "Demo Production",
     description:
       "Turning ideas, rough recordings or melodies into strong demos that clearly present your song.",
-  },
-  {
-    number: "08",
-    icon: "keys",
-    title: "Music Programming",
-    description:
-      "MIDI programming, virtual instruments and drum programming to achieve the right sound for your track.",
   },
 ];
 
