@@ -473,15 +473,12 @@ function Footer({ go: _go }: { go: (x: Page) => void }) {
         <div className="footer-links">
           <a href={contact.whatsappUrl} target="_blank" rel="noreferrer">
             <Icon name="whatsapp" />
-            WhatsApp
           </a>
           <a href={"mailto:" + contact.email}>
             <Icon name="mail" />
-            Email
           </a>
           <a href={contact.instagramUrl} target="_blank" rel="noreferrer">
             <Icon name="instagram" />
-            Instagram
           </a>
         </div>
       </div>
