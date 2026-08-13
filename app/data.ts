@@ -11,17 +11,19 @@ export type Service = {
     | "scissors"
     | "file"
     | "keys";
+  whatsappMessage: string;
 };
 
 export type Project = {
   title: string;
   artist: string;
   work: string;
-  platform: "YouTube" | "Spotify";
+  platform?: string;
   image: string;
   duration?: string;
-  /** Add the final YouTube or Spotify URL when this project is published. */
+  /** Add any public project URL here. */
   url?: string;
+  actionLabel?: string;
 };
 
 export const contact = {
@@ -39,6 +41,7 @@ export const services: Service[] = [
     title: "Recording",
     description:
       "High quality recording of vocals and instruments in a comfortable studio environment.",
+    whatsappMessage: "Hi Third Eye Music, I would like to enquire about Recording.",
   },
   {
     number: "02",
@@ -46,6 +49,7 @@ export const services: Service[] = [
     title: "Music Production",
     description:
       "Complete production of your song from the initial idea to a finished, release-ready production.",
+    whatsappMessage: "Hi Third Eye Music, I would like to enquire about Music Production.",
   },
   {
     number: "03",
@@ -53,6 +57,7 @@ export const services: Service[] = [
     title: "Vocal Pitching",
     description:
       "Pitch correction and tuning of vocals to achieve clean, natural and polished results.",
+    whatsappMessage: "Hi Third Eye Music, I would like to enquire about Vocal Pitching.",
   },
   {
     number: "04",
@@ -60,6 +65,7 @@ export const services: Service[] = [
     title: "Beat / Instrumental Production",
     description:
       "Custom beats and instrumentals created for your song, project or artist.",
+    whatsappMessage: "Hi Third Eye Music, I would like to enquire about Beat / Instrumental Production.",
   },
   {
     number: "05",
@@ -67,6 +73,7 @@ export const services: Service[] = [
     title: "Song Arrangement",
     description:
       "Structuring your song with the right flow, sections, transitions and musical direction.",
+    whatsappMessage: "Hi Third Eye Music, I would like to enquire about Song Arrangement.",
   },
   {
     number: "06",
@@ -74,6 +81,7 @@ export const services: Service[] = [
     title: "Vocal Editing",
     description:
       "Cleaning, comping and preparing vocal takes for a smooth and professional final performance.",
+    whatsappMessage: "Hi Third Eye Music, I would like to enquire about Vocal Editing.",
   },
   {
     number: "07",
@@ -81,6 +89,7 @@ export const services: Service[] = [
     title: "Demo Production",
     description:
       "Turning ideas, rough recordings or melodies into strong demos that clearly present your song.",
+    whatsappMessage: "Hi Third Eye Music, I would like to enquire about Demo Production.",
   },
 ];
 
@@ -89,7 +98,6 @@ export const projects: Project[] = [
     title: "Project Title 01",
     artist: "Artist / Client Name",
     work: "Recording, Production",
-    platform: "YouTube",
     image: "/third-eye-music-recording-microphone.png",
     duration: "3:45",
     url: "https://www.youtube.com/results?search_query=Project+Title+01",
@@ -98,7 +106,6 @@ export const projects: Project[] = [
     title: "Project Title 02",
     artist: "Artist / Client Name",
     work: "Production, Arrangement",
-    platform: "Spotify",
     image: "/e4953881-4c8f-459f-ae61-11c55f777240.png",
     url: "https://open.spotify.com/search/Project%20Title%2002",
   },
@@ -106,7 +113,6 @@ export const projects: Project[] = [
     title: "Project Title 03",
     artist: "Artist / Client Name",
     work: "Recording, Production, Vocal Pitching",
-    platform: "YouTube",
     image: "/third-eye-music-studio-wide.png",
     duration: "4:02",
     url: "https://www.youtube.com/results?search_query=Project+Title+03",

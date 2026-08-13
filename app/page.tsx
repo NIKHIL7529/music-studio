@@ -9,10 +9,11 @@ type Page = "home" | "services" | "work" | "contact";
 const Icon = ({ name, size = 24 }: { name: string; size?: number }) => {
   const paths: Record<string, React.ReactNode> = {
     whatsapp: (
-      <>
-        <path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z" />
-        <path d="M8.5 8.2c.3-.7.6-.7.9-.7h.5c.2 0 .4.1.5.4l.7 1.6c.1.3 0 .5-.2.7l-.5.6c.4.8 1.1 1.5 2 1.9l.5-.6c.2-.2.4-.2.7-.1l1.5.7c.3.1.4.3.4.5v.5c0 .3-.1.6-.7.9-3 .8-6.3-2.4-5.5-5.4Z" />
-      </>
+      <path
+        fill="currentColor"
+        stroke="none"
+        d="M12.04 2a9.9 9.9 0 0 0-8.5 14.98L2 22l5.16-1.5A9.9 9.9 0 1 0 12.04 2Zm0 18.02a8.1 8.1 0 0 1-4.14-1.14l-.3-.18-3.06.89.95-2.98-.2-.31a8.1 8.1 0 1 1 6.75 3.72Zm4.45-6.06c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-1.4-.7-2.32-1.25-3.25-2.83-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.4h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.65.58.25 1.03.4 1.38.52.58.18 1.1.15 1.52.1.46-.07 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z"
+      />
     ),
     menu: (
       <>
@@ -329,14 +330,21 @@ function Services() {
       <Hero page="services" />
       <section className="service-list">
         {services.map((s) => (
-          <article key={s.number}>
+          <a
+            className="service-list-item"
+            href={`${contact.whatsappUrl}?text=${encodeURIComponent(s.whatsappMessage)}`}
+            target="_blank"
+            rel="noreferrer"
+            key={s.number}
+          >
             <span>{s.number}</span>
             <div className="service-icon">
               <Icon name={s.icon} size={29} />
             </div>
             <h3>{s.title}</h3>
             <p>{s.description}</p>
-          </article>
+            <Icon name="arrow" size={19} />
+          </a>
         ))}
       </section>
       <Cta />
@@ -348,20 +356,10 @@ function Work() {
     <main>
       <Hero page="work" />
       <section className="work">
-        <div className="tabs">
-          <span className="active">All</span>
-          <span>YouTube</span>
-          <span>Spotify</span>
-          <small>More projects coming soon.</small>
-        </div>
         <div className="projects">
           {projects.map((p) => (
             <article
-              className={
-                "project " +
-                p.platform.toLowerCase() +
-                (p.url ? " has-link" : "")
-              }
+              className={"project" + (p.url ? " has-link" : "")}
               key={p.title}
             >
               <div className="project-media">
@@ -374,9 +372,7 @@ function Work() {
                 {p.duration && <b>{p.duration}</b>}
               </div>
               <div className="project-info">
-                <h3>
-                  {p.title} <em>{p.platform}</em>
-                </h3>
+                <h3>{p.title}</h3>
                 <p>{p.artist}</p>
                 <p>Type of work:　{p.work}</p>
               </div>
@@ -412,9 +408,7 @@ function Contact() {
           <WhatsAppButton />
         </ContactCard>
         <ContactCard icon="mail" title="Email">
-          <p>
-            {contact.email}
-          </p>
+          <p>{contact.email}</p>
         </ContactCard>
         <ContactCard icon="instagram" title="Instagram">
           <p>{contact.instagram}</p>
@@ -471,16 +465,13 @@ function Cta() {
     </section>
   );
 }
-function Footer({ go }: { go: (x: Page) => void }) {
+function Footer({ go: _go }: { go: (x: Page) => void }) {
   return (
     <footer>
       <div className="footer-top">
-        <div>
-          <h3>THIRD EYE MUSIC</h3>
-        </div>
-        <div className="footer-connect">
-          <b>CONNECT</b>
-          <a href={contact.whatsappUrl}>
+        <div className="footer-wordmark">THIRD EYE MUSIC</div>
+        <div className="footer-links">
+          <a href={contact.whatsappUrl} target="_blank" rel="noreferrer">
             <Icon name="whatsapp" />
             WhatsApp
           </a>
@@ -488,25 +479,10 @@ function Footer({ go }: { go: (x: Page) => void }) {
             <Icon name="mail" />
             Email
           </a>
-          <a href={contact.instagramUrl}>
+          <a href={contact.instagramUrl} target="_blank" rel="noreferrer">
             <Icon name="instagram" />
             Instagram
           </a>
-        </div>
-        <div className="footer-details">
-          <p>
-            <Icon name="whatsapp" />
-            {contact.phone}
-          </p>
-          <p>
-            <Icon name="mail" />
-            {contact.email}
-            <br />
-          </p>
-          <p>
-            <Icon name="instagram" />
-            {contact.instagram}
-          </p>
         </div>
       </div>
       <div className="footer-bottom">
