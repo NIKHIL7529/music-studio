@@ -408,7 +408,7 @@ function Contact() {
           <WhatsAppButton />
         </ContactCard>
         <ContactCard icon="mail" title="Email">
-          <p>{contact.email}</p>
+          <p><a href={"mailto:" + contact.email}>{contact.email}</a></p>
         </ContactCard>
         <ContactCard icon="instagram" title="Instagram">
           <p>{contact.instagram}</p>
